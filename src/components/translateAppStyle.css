@@ -1,0 +1,29 @@
+
+
+/*Background*/
+.cs-bg-image {
+    background: url('../resources/hero_img.jpg') no-repeat center top / 100% !important;
+    background-color: #040711 !important;
+}
+
+.cs-bg-one {
+    background-color: #212936CC !important;
+}
+
+.cs-bg-sec {
+    background-color: #121826CC !important;
+}
+
+/*Border*/
+.cs-border-one {
+    border: solid 1px #4D5562 !important;
+}
+
+.cs-border-sec {
+    border-bottom: solid 1px #4D5562 !important;
+}
+
+/*Font*/
+.cs-tc-one {
+    color: #F9FAFB !important;
+}
