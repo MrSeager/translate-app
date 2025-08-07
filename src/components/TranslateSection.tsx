@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 //Bootstrap
 import { Container, Col, Button, Dropdown, Form } from 'react-bootstrap';
 //Icons
@@ -18,23 +18,30 @@ interface TranslateSectionProps {
 }
 
 const TranslateSection: FC<TranslateSectionProps> = ({ setLangOne, languagesSet, langOne, translatingText, setTranslatingText, handleTranslate, handleCopy, speakText }) => {
+    const [dropLang, setDropLang] = useState('es');
+    
+    const handleDropLang = (lang: string) => {
+        setLangOne(lang);
+        setDropLang(lang);
+    }
+
     return (
         <Col lg={6} xs={12} className='py-0 my-1'>
             <Container className='user-select-none cs-bg-one cs-border-one rounded rounded-4 p-3 d-flex flex-column'>
-                <Container className='cs-tc-one d-flex gap-3 align-items-center cs-border-sec pb-3'>
-                    <h1 className='h6 m-0'>Detect Language</h1>
-                    <Button onClick={() => setLangOne('en')}>English</Button>
-                    <Button onClick={() => setLangOne('fr')}>French</Button>
+                <Container className='d-flex gap-3 align-items-center cs-border-sec pb-3'>
+                    <h1 className='cs-tc-one h6 m-0'>Detect Language</h1>
+                    <Button className={`cs-tc-one cs-transition rounded-4 border-3 cs-btn${langOne === 'en' ? '-active' : ''}`} onClick={() => setLangOne('en')}>English</Button>
+                    <Button className={`cs-tc-one cs-transition rounded-4 border-3 cs-btn${langOne === 'fr' ? '-active' : ''}`} onClick={() => setLangOne('fr')}>French</Button>
                     <Dropdown drop='down-centered'>
-                        <Dropdown.Toggle id="dropdown-basic" className='text-capitalize'>
-                            {languagesSet[langOne]}
+                        <Dropdown.Toggle id="dropdown-basic" className={`cs-tc-one cs-transition rounded-4 border-3 text-capitalize cs-btn${langOne !== 'en' && langOne !== 'fr' ? '-active' : ''}`}>
+                            {languagesSet[dropLang]}
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu className='text-capitalize'>
-                            <Dropdown.Item onClick={() => setLangOne('es')}>Spanish</Dropdown.Item>
-                            <Dropdown.Item onClick={() => setLangOne('uk')}>Ukrainian</Dropdown.Item>
-                            <Dropdown.Item onClick={() => setLangOne('de')}>German</Dropdown.Item>
-                            <Dropdown.Item onClick={() => setLangOne('ja')}>Japanese</Dropdown.Item>
+                            <Dropdown.Item onClick={() => handleDropLang('es')}>Spanish</Dropdown.Item>
+                            <Dropdown.Item onClick={() => handleDropLang('uk')}>Ukrainian</Dropdown.Item>
+                            <Dropdown.Item onClick={() => handleDropLang('de')}>German</Dropdown.Item>
+                            <Dropdown.Item onClick={() => handleDropLang('ja')}>Japanese</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Container>
@@ -51,10 +58,10 @@ const TranslateSection: FC<TranslateSectionProps> = ({ setLangOne, languagesSet,
                         {translatingText.length}/500
                     </Form.Text>
                 </Form>
-                <Container className='px-0 d-flex align-items-center cs-tc-one gap-3'>
-                    <Button onClick={() => speakText(translatingText, langOne)}><HiMiniSpeakerWave size={25} /></Button>
-                    <Button onClick={() => handleCopy(translatingText)}><LuCopy size={25} /></Button>
-                    <Button className='ms-auto' onClick={handleTranslate}><PiTextAUnderlineBold size={25} /> Translate</Button>
+                <Container className='px-0 d-flex align-items-end cs-tc-one gap-3'>
+                    <Button size='sm' className='bg-transparent border-3 rounded-4 cs-transition cs-btn-sec' onClick={() => speakText(translatingText, langOne)}><HiMiniSpeakerWave size={25} /></Button>
+                    <Button size='sm' className='bg-transparent border-3 rounded-4 cs-transition cs-btn-sec' onClick={() => handleCopy(translatingText)}><LuCopy size={25} /></Button>
+                    <Button size='lg' className='rounded-4 cs-transition ms-auto cs-btn-thr' onClick={handleTranslate}><PiTextAUnderlineBold size={25} /> Translate</Button>
                 </Container>
             </Container>
         </Col>

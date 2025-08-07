@@ -1,4 +1,7 @@
 
+.cs-transition {
+    transition: .5s !important;
+}
 
 /*Background*/
 .cs-bg-image {
@@ -26,4 +29,38 @@
 /*Font*/
 .cs-tc-one {
     color: #F9FAFB !important;
+}
+
+/*Buttons*/
+.cs-btn {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.cs-btn:hover {
+    background-color: #4D5562 !important;
+    scale: 1.1;
+} 
+
+.cs-btn-active {
+    background-color: #4D5562 !important;
+    border-color: transparent !important;
+}
+
+.cs-btn-sec {
+    border-color: #4D5562 !important;
+    color: #4D5562 !important;
+}
+
+.cs-btn-sec:hover {
+    scale: 1.1;
+}
+
+.cs-btn-thr {
+    border-color: #7CA9F3 !important;
+    background-color: #263FA9 !important;
+}
+
+.cs-btn-thr:hover {
+    scale: 1.1;
 }
