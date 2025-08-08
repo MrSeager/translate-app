@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=DM+Sans:400,600,700&display=swap');
+
+body {
+    font-family: 'DM+Sans', sans-serif !important;
+}
 
 .cs-transition {
     transition: .5s !important;
+}
+
+.cs-min-h {
+    min-height: 150px !important;
 }
 
 /*Background*/

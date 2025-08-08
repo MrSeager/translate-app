@@ -4,13 +4,14 @@ import './translateAppStyle.css';
 import TranslateSection from './TranslateSection.tsx';
 import TranslationSection from './TranslationSection.tsx';
 import CopyToast from './CopyToast.tsx';
+import { useScale } from './anim.tsx';
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.css';
 import { Container, Image, Row } from 'react-bootstrap';
 //Axios
 import axios from 'axios';
 //Spring
-import { useSpring, animated } from '@react-spring/web';
+import { animated } from '@react-spring/web';
 //Images
 import LogoImg from '../resources/logo.svg';
 
@@ -76,10 +77,13 @@ const TranslateApp: FC = () => {
         speechSynthesis.speak(utterance);
     };
 
-    
+    const hoverAnim = useScale(200);
+
     return (
-        <Container fluid className='min-vh-100 cs-bg-image d-flex flex-column align-items-center justify-content-center gap-3'>
-            <Image src={LogoImg} alt='logo' />
+        <Container fluid className='py-5 min-vh-100 cs-bg-image d-flex flex-column align-items-center justify-content-center gap-3'>
+            <animated.div style={hoverAnim}>
+                <Image src={LogoImg} alt='logo' />
+            </animated.div>
             <Container>
                 <Row>
                     <TranslateSection 
