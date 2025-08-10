@@ -27,7 +27,7 @@ const TranslationSection: FC<TranslationSectionProps> = ({ setLangSec, languages
     return (
         <Col lg={6} xs={12} className='py-0 my-1'>
             <animated.div style={scaleAnim} className='container h-100 cs-bg-sec cs-border-one rounded rounded-4 p-3 d-flex flex-column'>
-                <Container className='cs-tc-one d-flex gap-3 align-items-center cs-border-sec pb-3'>
+                <Container className='cs-tc-one d-flex flex-wrap gap-3 align-items-center cs-border-sec pb-3'>
                     <Button className={`cs-tc-one cs-transition rounded-4 border-3 cs-btn${langSec === 'en' ? '-active' : ''}`} onClick={() => setLangSec('en')}>English</Button>
                     <Button className={`cs-tc-one cs-transition rounded-4 border-3 cs-btn${langSec === 'fr' ? '-active' : ''}`} onClick={() => setLangSec('fr')}>French</Button>
                     <Dropdown drop='down-centered'>

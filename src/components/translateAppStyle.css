@@ -26,6 +26,10 @@ body {
     background-color: #121826CC !important;
 }
 
+.cs-bg-thr {
+    background-color: #D2D5DA !important;
+}
+
 /*Border*/
 .cs-border-one {
     border: solid 1px #4D5562 !important;
@@ -38,6 +42,10 @@ body {
 /*Font*/
 .cs-tc-one {
     color: #F9FAFB !important;
+}
+
+.cs-tc-sec {
+    color: #121826CC !important;
 }
 
 /*Buttons*/

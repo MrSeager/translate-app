@@ -27,7 +27,7 @@ const TranslateSection: FC<TranslateSectionProps> = ({ setLangOne, languagesSet,
     return (
         <Col lg={6} xs={12} className='py-0 my-1'>
             <animated.div style={scaleAnim} className='container user-select-none cs-bg-one cs-border-one rounded rounded-4 p-3 d-flex flex-column'>
-                <Container className='d-flex gap-3 align-items-center cs-border-sec pb-3'>
+                <Container className='d-flex flex-wrap gap-3 align-items-center cs-border-sec pb-3'>
                     <h1 className='cs-tc-one h6 m-0'>Detect Language</h1>
                     <Button className={`cs-tc-one cs-transition rounded-4 border-3 cs-btn${langOne === 'en' ? '-active' : ''}`} onClick={() => setLangOne('en')}>English</Button>
                     <Button className={`cs-tc-one cs-transition rounded-4 border-3 cs-btn${langOne === 'fr' ? '-active' : ''}`} onClick={() => setLangOne('fr')}>French</Button>

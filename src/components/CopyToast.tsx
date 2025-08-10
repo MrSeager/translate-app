@@ -12,7 +12,8 @@ const CopyToast: FC<CopyToastProps> = ({ showTost, setShowToast }) => {
         <ToastContainer position='top-center'>
             <Toast 
                 onClose={() => setShowToast(false)} 
-                show={showTost} className='mt-5' 
+                show={showTost} 
+                className='mt-5 cs-bg-thr cs-tc-sec' 
                 delay={2000}
                 autohide
             >
